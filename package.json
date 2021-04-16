@@ -7,7 +7,7 @@
     "eject": "react-scripts eject",
     "eslint:check": "eslint ./src/**/*.{ts,tsx}",
     "eslint:fix": "npm run eslint:check -- --fix",
-    "lint:check":"run-s eslint:check prettier:ts:check stylelint:check",
+    "lint:check": "run-s eslint:check prettier:ts:check stylelint:check",
     "pre-commit": "lint-staged",
     "pre-push": "npm test",
     "prettier:ts:check": "prettier --check ./src/**/*.{ts,tsx}",
@@ -66,11 +66,5 @@
     "prettier": "^2.2.1",
     "stylelint": "^13.12.0",
     "stylelint-config-standard": "^21.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run pre-commit",
-      "pre-push": "npm run pre-push"
-    }
   }
 }
