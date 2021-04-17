@@ -4,7 +4,7 @@ import { goNextView, setFormView } from '../store/form/form.actions';
 import { currentFormView } from '../store/form/form.selectors';
 import { formStepsPath } from '../utils/formStepsPath';
 
-function* actionHandler() {
+export function* actionHandler() {
   const currentView: FormView = yield select(currentFormView);
   const nextView: FormView = formStepsPath.get(currentView);
 
