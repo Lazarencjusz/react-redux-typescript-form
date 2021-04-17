@@ -21,6 +21,6 @@
   "plugins": ["eslint-plugin-react", "react", "@typescript-eslint"],
   "rules": {
     "quotes": ["warn", "single"],
-    "@typescript-eslint/explicit-module-boundary-types": ["warn"]
+    "@typescript-eslint/explicit-module-boundary-types": ["off"]
   }
 }

@@ -22,7 +22,7 @@ export class Row extends React.PureComponent<Props> {
   }
 
   get flex(): string {
-    return this.props.grow || this.props.shrink ? `${this.grow} ${this.shrink} ${this.props.auto ? 'auto' : ''}` : null;
+    return this.props.grow || this.props.shrink ? `${this.grow} ${this.shrink} ${this.props.auto ? 'auto' : ''}` : '';
   }
   render(): JSX.Element {
     return (
@@ -34,7 +34,7 @@ export class Row extends React.PureComponent<Props> {
           justifyContent: this.props.justify,
           alignItems: this.props.align,
           flex: this.flex,
-          position: this.props.relative ? 'relative' : null,
+          position: this.props.relative ? 'relative' : 'initial',
         }}
       >
         {this.props.children}
