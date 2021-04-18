@@ -9,6 +9,14 @@ import { hasLength } from './common/hasLength';
 
 const MIN_LENGTH = 9;
 
+/**
+ * This function validate "password" field from
+ * provided form data and returns error message
+ * depending on validation condition
+ *
+ * @param formData AppFormData
+ * @returns string | null
+ */
 export const passwordValidator = (formData: AppFormData): string | null => {
   const value: string = formData.password;
 
