@@ -20,11 +20,11 @@ const generateInputs = (config: InputProps[], onChange: (data: UpdateFormFieldPa
     .map((inputConfig: InputProps) => {
       switch (inputConfig.type) {
         case InputType.checkbox:
-          return <CheckboxInput {...inputConfig} onChange={onChange} />;
+          return <CheckboxInput {...inputConfig} key={inputConfig.field} onChange={onChange} />;
         case InputType.password:
         case InputType.email:
         default:
-          return <TextInput {...inputConfig} onChange={onChange} />;
+          return <TextInput {...inputConfig} key={inputConfig.field} onChange={onChange} />;
       }
     })
     .value();

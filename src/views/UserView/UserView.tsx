@@ -1,5 +1,5 @@
 import { Button } from '@material-ui/core';
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FormFactory } from '../../features/FormFactory/FormFactory';
 import { UpdateFormFieldPayload } from '../../model/form/UpdateFormFieldPayload';
@@ -11,13 +11,11 @@ import { userFormConfig } from '../../utils/formViews/userFormConfig';
 
 export function UserView(): JSX.Element {
   const dispatch = useDispatch();
-  const onChange = useCallback((data: UpdateFormFieldPayload) => dispatch(setFormField(data)), []);
+  const onChange = (data: UpdateFormFieldPayload) => dispatch(setFormField(data));
 
   const isFormValid: boolean = useSelector(getIsUserFormValid);
 
-  const handleClick = useCallback(() => {
-    dispatch(goToPrivacyView());
-  }, []);
+  const handleClick = () => dispatch(goToPrivacyView());
 
   return (
     <Column>

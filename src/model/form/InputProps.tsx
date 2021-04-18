@@ -6,4 +6,5 @@ export interface InputProps {
   label: string;
   field: FormField;
   required?: boolean;
+  defaultValue?: string | boolean;
 }

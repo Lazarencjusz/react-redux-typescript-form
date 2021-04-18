@@ -7,6 +7,7 @@ const PREFIX = 'FORM';
 export const setFormView: ActionCreatorWithPayload<FormView> = createAction(`${PREFIX}_SET_FORM_VIEW`);
 
 export const goToPrivacyView: ActionCreatorWithoutPayload = createAction(`${PREFIX}_GO_PRIVACY`);
+export const goToDoneView: ActionCreatorWithoutPayload = createAction(`${PREFIX}_GO_DONE`);
 
 export const setFormField: ActionCreatorWithPayload<UpdateFormFieldPayload> = createAction(`${PREFIX}_SET_FORM_FIELD`);
 

@@ -1,5 +1,5 @@
 import { InputLabelProps, TextField } from '@material-ui/core';
-import React, { ChangeEvent, useCallback } from 'react';
+import React, { ChangeEvent } from 'react';
 import { useSelector } from 'react-redux';
 import { InputProps } from '../../../model/form/InputProps';
 import { UpdateFormFieldPayload } from '../../../model/form/UpdateFormFieldPayload';
@@ -16,9 +16,8 @@ interface Events {
 export function TextInputComponent(props: InputProps & Events): JSX.Element {
   const fieldError: string | null | undefined = useSelector(getFieldError(props.field));
 
-  const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) =>
     props.onChange({ field: props.field, value: event?.target?.value });
-  }, []);
 
   return (
     <TextField
