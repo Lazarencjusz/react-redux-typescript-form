@@ -7,10 +7,11 @@ import { PrivacyView } from '../PrivacyView';
 
 describe('<PrivacyView />', () => {
   test('should render correct view', () => {
+    // given
     const store = mockStore();
-
     const dispatchSpy = jest.spyOn(store, 'dispatch');
 
+    // when
     render(
       <Provider store={store}>
         <PrivacyView />
@@ -20,6 +21,7 @@ describe('<PrivacyView />', () => {
     const viewElement = screen.getByRole('button');
     viewElement.click();
 
+    // then
     expect(viewElement).toBeTruthy();
     expect(dispatchSpy).toBeCalledTimes(1);
     expect(dispatchSpy).toBeCalledWith(goToDoneView());

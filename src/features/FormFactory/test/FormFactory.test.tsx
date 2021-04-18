@@ -9,6 +9,7 @@ import { FormFactory } from '../FormFactory';
 
 describe('<FormFactory />', () => {
   test('should call "generateFormInputs" and render created elements', async () => {
+    // given
     const generateFormInputsStub = jest
       .spyOn(generateFormInputsModule, 'generateFormInputs')
       .mockImplementation((config: InputProps[]): JSX.Element[] =>
@@ -20,11 +21,14 @@ describe('<FormFactory />', () => {
     const input2 = privacyFormConfig[0];
 
     const config: InputProps[] = [input1, input2];
+
+    // when
     render(<FormFactory config={config} onChange={onChange} />);
 
     const input1Element = await screen.findByText(input1.label);
     const input2Element = await screen.findByText(input2.label);
 
+    // then
     expect(input1Element).toBeTruthy();
     expect(input2Element).toBeTruthy();
     expect(generateFormInputsStub).toBeCalledTimes(1);

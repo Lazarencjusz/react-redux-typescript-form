@@ -7,10 +7,12 @@ import { FormStepper } from '../FormStepper';
 
 describe('<FormStepper />', () => {
   test('should find all steps', async () => {
+    // given
     const store = mockStore({
       form: { currentView: FormView.user },
     });
 
+    // when
     render(
       <Provider store={store}>
         <FormStepper />
@@ -21,6 +23,7 @@ describe('<FormStepper />', () => {
     const privacyStep = await screen.findByText(FormView.privacy);
     const doneStep = await screen.findByText(FormView.done);
 
+    // then
     expect(userStep).toBeTruthy();
     expect(privacyStep).toBeTruthy();
     expect(doneStep).toBeTruthy();

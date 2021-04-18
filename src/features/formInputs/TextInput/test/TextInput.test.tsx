@@ -7,6 +7,7 @@ import { TextInput } from '../TextInput';
 
 describe('<TextInput />', () => {
   test('should render correctly and call "onChenge" with payload after click', async () => {
+    // given
     const onChange = jest.fn();
 
     const label = 'INPUT LABEL';
@@ -17,6 +18,7 @@ describe('<TextInput />', () => {
       form: { data: { [field]: value } },
     });
 
+    // when
     render(
       <Provider store={store}>
         <TextInput field={field} label={label} onChange={onChange} />
@@ -25,6 +27,7 @@ describe('<TextInput />', () => {
 
     const inputElement = screen.getByLabelText(label);
 
+    // then
     fireEvent.change(inputElement, { target: { value } });
 
     expect(inputElement).toBeTruthy();
