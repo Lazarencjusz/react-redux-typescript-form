@@ -1,11 +1,11 @@
 import { replace } from 'lodash';
 import { ErrorMessage } from '../../model/enum/ErrorMessage';
 import { AppFormData } from '../../model/form/AppFormData';
-import { haveOneLowercase } from './common/haveOneLowercase';
-import { haveOneNumber } from './common/haveOneNumber';
-import { haveOneUppercase } from './common/haveOneUppercase';
+import { hasOneLowercase } from './common/hasOneLowercase';
+import { hasOneNumber } from './common/hasOneNumber';
+import { hasOneUppercase } from './common/hasOneUppercase';
 import { isDefined } from './common/isDefined';
-import { haveLength } from './common/validatePasswordLength';
+import { hasLength } from './common/hasLength';
 
 const MIN_LENGTH = 9;
 
@@ -15,16 +15,16 @@ export const passwordValidator = (formData: AppFormData): string | null => {
   if (!isDefined(value)) {
     return ErrorMessage.required;
   }
-  if (!haveLength(value, MIN_LENGTH)) {
+  if (!hasLength(value, MIN_LENGTH)) {
     return replace(ErrorMessage.passwordLength, '%s%', String(MIN_LENGTH));
   }
-  if (!haveOneUppercase(value)) {
+  if (!hasOneUppercase(value)) {
     return ErrorMessage.passwordUppercase;
   }
-  if (!haveOneLowercase(value)) {
+  if (!hasOneLowercase(value)) {
     return ErrorMessage.passwordLowercase;
   }
-  if (!haveOneNumber(value)) {
+  if (!hasOneNumber(value)) {
     return ErrorMessage.passwordNumber;
   }
 
