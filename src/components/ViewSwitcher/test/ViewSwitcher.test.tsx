@@ -12,6 +12,6 @@ describe('<ViewSwitcher />', () => {
     render(<ViewSwitcher selectedView={selectedView} viewsConfig={viewsConfig} />);
 
     const viewElement = screen.findByText(label);
-    expect(viewElement).toBeTruthy;
+    expect(viewElement).toBeTruthy();
   });
 });
